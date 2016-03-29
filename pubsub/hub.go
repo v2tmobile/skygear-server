@@ -1,8 +1,9 @@
 package pubsub
 
 import (
-	log "github.com/Sirupsen/logrus"
 	"time"
+
+	log "github.com/Sirupsen/logrus"
 )
 
 // Parcel is the protocol that Hub talk with
@@ -86,6 +87,7 @@ func (h *Hub) publish(channel string, data []byte) {
 		Data:    data,
 	}
 	for _, c := range h.subscription[channel] {
+		c := c
 		go func() {
 			select {
 			case c.Send <- parcel:
