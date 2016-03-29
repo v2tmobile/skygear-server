@@ -1,3 +1,9 @@
+## 0.6.1 (2016-03-29)
+
+### Bug Fixes
+
+- Fix last subscriber stealing all published message oursky/skygear-server#642
+
 ## 0.6.0 (2016-02-24)
 
 ### Features
