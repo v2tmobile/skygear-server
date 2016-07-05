@@ -1,3 +1,9 @@
+## 0.12.2 (2016-07-05)
+
+### Incompatible changes
+
+- Change the token expiry default to never (#65)
+
 ## 0.12.1 (2016-06-02)
 
 ### Bug fixes
