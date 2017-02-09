@@ -1,3 +1,9 @@
+## 0.21.2 (2017-02-09)
+
+### Bug Fixes
+
+- Fix request context not initialized (#284)
+
 ## 0.21.1 (2017-01-19)
 
 ### Features
