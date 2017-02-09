@@ -17,6 +17,8 @@ package router
 import (
 	"net/http"
 	"regexp"
+
+	"golang.org/x/net/context"
 )
 
 // pathRoute is the path matching version of pipeline. Instead of storing the action
@@ -131,10 +133,11 @@ func (g *Gateway) newPayloadForRawHandler(req *http.Request) (p *Payload) {
 	params := submatchesFromIndices(req.URL.Path, indices)
 	log.Debugf("Matched params: %v", params)
 	p = &Payload{
-		Req:    req,
-		Params: params,
-		Meta:   map[string]interface{}{},
-		Data:   map[string]interface{}{},
+		Req:     req,
+		Params:  params,
+		Meta:    map[string]interface{}{},
+		Data:    map[string]interface{}{},
+		Context: context.Background(),
 	}
 
 	query := req.URL.Query()

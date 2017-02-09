@@ -24,6 +24,8 @@ import (
 	"strings"
 	"sync"
 
+	"golang.org/x/net/context"
+
 	"github.com/skygeario/skygear-server/pkg/server/logging"
 	"github.com/skygeario/skygear-server/pkg/server/skyerr"
 	"github.com/skygeario/skygear-server/pkg/server/skyversion"
@@ -193,8 +195,9 @@ func newPayloadForJSONHandler(req *http.Request) (p *Payload, err error) {
 	}
 
 	p = &Payload{
-		Data: data,
-		Meta: map[string]interface{}{},
+		Data:    data,
+		Meta:    map[string]interface{}{},
+		Context: context.Background(),
 	}
 
 	if apiKey := req.Header.Get("X-Skygear-Api-Key"); apiKey != "" {
