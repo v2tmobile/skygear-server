@@ -108,7 +108,6 @@ type DeviceRegisterHandler struct {
 	DBConn        router.Processor `preprocessor:"dbconn"`
 	InjectAuth    router.Processor `preprocessor:"inject_auth"`
 	InjectDB      router.Processor `preprocessor:"inject_db"`
-	RequireAuth   router.Processor `preprocessor:"require_auth"`
 	PluginReady   router.Processor `preprocessor:"plugin_ready"`
 	preprocessors []router.Processor
 }
@@ -119,7 +118,6 @@ func (h *DeviceRegisterHandler) Setup() {
 		h.DBConn,
 		h.InjectAuth,
 		h.InjectDB,
-		h.RequireAuth,
 		h.PluginReady,
 	}
 }
